@@ -6,6 +6,7 @@ public class SpriteScript : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator anim;
+    bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class SpriteScript : MonoBehaviour
         Vector2 velocity = rb.velocity;
 
         //check for jump
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w") && (isGrounded == true ))
         {
             if (velocity.y < 0.01f)
             {
@@ -71,7 +72,6 @@ public class SpriteScript : MonoBehaviour
 
         rb.velocity = velocity;
 
-
         // check for player moving left/right and flip the sprite
 
         //make player face left or right depending on whether the sprites velocity is
@@ -100,5 +100,17 @@ public class SpriteScript : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
 
         }
+    }
+
+    //check for if the sprite is grounded or is not grounded
+
+    private void OnCollisionStay2D(Collision2D collison)
+    {
+        isGrounded = true;
+    }
+
+    private void OnCollisionExit2D(Collision2D collison)
+    {
+        isGrounded = false;
     }
 }

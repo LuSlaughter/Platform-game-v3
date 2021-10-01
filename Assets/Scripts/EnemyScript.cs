@@ -29,5 +29,16 @@ public class EnemyScript : MonoBehaviour
 
         }
     }
+    void DoFaceRight(bool faceRight)
+    {
+        if (faceRight == true)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
 
+        }
+    }
 }
