@@ -30,13 +30,13 @@ public class EnemyScript : MonoBehaviour
         float px = player.transform.position.x;
         float dist = ex - px;
 
-        if (dist > 0)
+        if (dist > 1)
         {
             DoFaceLeft(true);
             velocity.x = -5;
         }
 
-        if (dist < 0)
+        if (dist < -1)
         {
             DoFaceLeft(false);
             velocity.x = 5;
