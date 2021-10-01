@@ -5,11 +5,13 @@ using UnityEngine;
 public class SpriteScript : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,17 @@ public class SpriteScript : MonoBehaviour
         {
             velocity.x = 5;
         }
+
+        if( velocity.x == 0 )
+        {
+            anim.SetBool("walk", false);
+
+        }
+        else
+        {
+            anim.SetBool("walk", true);
+        }
+
         rb.velocity = velocity;
 
 
