@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpriteScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Animator anim;
+    Rigidbody2D rb;
+    Animator anim;
     bool isGrounded;
 
     // Start is called before the first frame update

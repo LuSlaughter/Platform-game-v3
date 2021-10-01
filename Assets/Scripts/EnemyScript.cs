@@ -5,16 +5,24 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     public GameObject player;
-    private Rigidbody2D rb;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
+    {
+        DoJump();
+        DoMove();
+        DoFaceDirection();
+    }
+
+    void DoFaceDirection()
     {
         Vector2 velocity = rb.velocity;
         velocity.x = 0;
@@ -33,7 +41,10 @@ public class EnemyScript : MonoBehaviour
             DoFaceLeft(false);
             velocity.x = 5;
         }
+
+        rb.velocity = velocity;
     }
+
     void DoFaceLeft(bool faceLeft)
     {
         if (faceLeft == true)
@@ -45,6 +56,16 @@ public class EnemyScript : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
 
         }
+    }
+
+    void DoJump()
+    {
+
+    }
+
+    void DoMove()
+    {
+
     }
     
 }
