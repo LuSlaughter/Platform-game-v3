@@ -77,30 +77,19 @@ public class SpriteScript : MonoBehaviour
         //make player face left or right depending on whether the sprites velocity is
         if (velocity.x < -0.5f)
         {
-            DoFaceLeft(true);
+            Helper.FlipObject(gameObject, true);
         }
 
         if (velocity.x > 0.5f)
         {
-            DoFaceLeft(false);
+            Helper.FlipObject(gameObject, false);
         }
 
 
 
     }
 
-    void DoFaceLeft(bool faceLeft)
-    {
-        if (faceLeft == true)
-        {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-
-        }
-    }
+    
 
     //check for if the sprite is grounded or is not grounded
 
