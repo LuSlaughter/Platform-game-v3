@@ -33,13 +33,13 @@ public class EnemyScript : MonoBehaviour
         if (dist > 1)
         {
             DoFaceLeft(true);
-            velocity.x = -5;
+            velocity.x = -4;
         }
 
         if (dist < -1)
         {
             DoFaceLeft(false);
-            velocity.x = 5;
+            velocity.x = 4;
         }
 
         rb.velocity = velocity;
